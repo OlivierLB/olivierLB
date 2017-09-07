@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
-import { Button } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
+import Presentation from './Presentation/Presentation.js'
+import Competences from './Competences/Competences.js'
+import Experiences from './Experiences/Experiences.js'
+import Scolaire from './Scolaire/Scolaire.js'
 
 export default class Accueil extends Component {
 
   render() {
     return(
-      <span>
-        <Button primary>Primary</Button>
-        <Button secondary>Secondary</Button>
-      </span>
+      <Segment attached='bottom'>
+
+        <Presentation />
+        <Competences />
+        <Experiences />
+        <Scolaire />
+
+      </Segment>
     );
   }
 }

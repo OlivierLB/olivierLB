@@ -11,25 +11,17 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Composants
 import Router from './Constant/Router/Router.js';
+import Header from './Constant/Header/Header.js';
+import Footer from './Constant/Footer/Footer.js';
 
 //Reducers
 import router from './redux/reducers/Routing';
-import filtre from './redux/reducers/Filtre';
-import inscrire from './redux/reducers/Inscrire'
-import connection from './redux/reducers/Connection'
-import conseils from './redux/reducers/Conseils'
-import erreur from './redux/reducers/Erreur'
 
 const history = createHistory();
 
 const store = createStore(
     combineReducers({
         router,
-        filtre,
-        inscrire,
-        connection,
-        erreur,
-        conseils,
         routing: routerReducer
     }),
     compose(
@@ -46,14 +38,19 @@ export default class App extends Component {
     injectTapEventPlugin();
   }
 
+
+
   render() {
+
     return(
-      <div className="Row">
+      <div id="background">
+        <Header store={store}/>
         <Provider store={store}>
             <ConnectedRouter history={history}>
                 <Router/>
             </ConnectedRouter>
         </Provider>
+        <Footer store={store}/>
       </div>
     );
   }
